@@ -1,0 +1,61 @@
+// function getName() {
+//     console.log('I am a named function');
+// }
+// const getName = () => {console.log('I am a function');}
+
+
+// () => {console.log('I am an anonymous function');}
+
+// const http = require('http');
+
+//import express, nodemon and dotenv
+const config = require("dotenv").config();
+// require("dotenv").config(); 
+const express = require("express");
+const nodemon = require('nodemon');
+const app = express();
+
+
+
+app.use(express.json());
+//messages should be in json format
+
+// const hostname = '127.0.0.1';
+const port = process.env.PORT || config.PORT;
+
+
+
+
+
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to Student management app"})
+});
+
+// 
+
+
+
+
+// const server = http.createServer((req, res) => {
+//   res.statusCode = 200;
+//   res.setHeader('Content-Type', 'text/plain');
+//   res.end('Hello World');
+// });
+
+app.listen(port, () => {
+  console.log(`Server running at ${port}/`);
+});
+
+/*
+download node
+go terminal, type npm init
+create modules
+db.services
+
+
+CRUD 
+create : post
+read : get
+delete : delete
+Update : Put
+*/
